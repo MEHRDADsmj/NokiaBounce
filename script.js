@@ -3,6 +3,7 @@ var camera, scene, renderer;
 
 function Init()
 {
+    keyboard = new THREEx.KeyboardState();
     TBI();
 }
 
