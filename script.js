@@ -5,6 +5,7 @@ function Init()
 {
     keyboard = new THREEx.KeyboardState();
     TBI();
+    InitCannon()
 }
 
 // Three basic inits
@@ -28,6 +29,7 @@ function Animate()
 {
     requestAnimationFrame(Animate);
     renderer.render(scene, camera);
+    UpdatePhysics();
 }
 
 window.onload = function ()
