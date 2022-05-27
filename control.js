@@ -23,4 +23,3 @@ function pressedRight(){
 function pressedLeft(){
     ball.position.x -=1;
 }
-
