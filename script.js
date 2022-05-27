@@ -30,6 +30,7 @@ function Animate()
     requestAnimationFrame(Animate);
     renderer.render(scene, camera);
     UpdatePhysics();
+    handleControl();
 }
 
 window.onload = function ()

@@ -1,6 +1,6 @@
 var world;
 var timeStep = 1/60;
-var ballBody;
+var ballBody, speed;
 
 function InitCannon()
 {
@@ -22,6 +22,9 @@ function InitCannon()
 function UpdatePhysics()
 {
     world.step(timeStep);
+
+    var force = new CANNON.Vec3(speed, 0.0, 0.0);
+    ballBody.applyForce(force, ballBody.position);
 
     ball.position.copy(ballBody.position);
     ball.quaternion.copy(ballBody.quaternion);

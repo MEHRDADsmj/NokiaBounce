@@ -8,15 +8,13 @@ function handleControl(){
     else if (keyboard.pressed("left") || keyboard.pressed("a")) {
         pressedLeft();
     }
-    if (keyboard.pressed("space")) {
-        
-    }
-}function pressedUp(){
-    ball.position.y +=1;
+}
+function pressedUp(){
+    Jump();
 }
 function pressedRight(){
-    ball.position.x +=1;
+    speed = 200.0;
 }
 function pressedLeft(){
-    ball.position.x -=1;
+    speed = -200.0;
 }
