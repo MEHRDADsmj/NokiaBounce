@@ -2,9 +2,6 @@ function handleControl(){
     if (keyboard.pressed("up") || keyboard.pressed("w") || keyboard.pressed("space")) {
         pressedUp();
     }
-    else if (keyboard.pressed("down") || keyboard.pressed("s")) {
-        pressedDown();
-    }
     if (keyboard.pressed("right") || keyboard.pressed("d")) {
         pressedRight();
     }
