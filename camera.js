@@ -13,11 +13,9 @@ var camera, scene, renderer;
      scene = new THREE.Scene();
 
      camera = new THREE.OrthographicCamera( window.width / - 2, window.width / 2, window.height / 2, window.height / - 2, 1, 1000 );
-      camera.position.x = ball.position.x
-      camera.lookAt(scene,camera);
-      camera.position.x = ball.position.x;
-      camera.position.y = 0.0;
-      camera.position.z = -10.0;
+     
+      
+      
      scene.add( camera );
 
      renderer = new THREE.WebGLrenderer();
@@ -30,6 +28,7 @@ function Animate()
     requestAnimationFrame(Animate);
     renderer.render(scene, camera);
     handleinput();
+  camera.position.set =(ball.position.x, 0.0, -10.0);
     //changecolor();
 }
  
