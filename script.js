@@ -5,10 +5,13 @@ function Init()
 {
     keyboard = new THREEx.KeyboardState();
     TBI();
-    InitCannon()
+    CreateMap();
+    // PlaySound();
+    InitCannon();
+    UpdateMap();
 }
 
-// Three basic inits
+// Three basic init
 function TBI()
 {
     scene = new THREE.Scene();
@@ -29,8 +32,10 @@ function Animate()
 {
     requestAnimationFrame(Animate);
     renderer.render(scene, camera);
-    UpdatePhysics();
     handleControl();
+    UpdatePhysics();
+    UpdateMap();
+    camera.position.set(ball.position.x, camera.position.y, camera.position.z);
 }
 
 window.onload = function ()

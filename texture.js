@@ -22,3 +22,4 @@ function createmap()
      cube = new THREE.Mesh( boxgeometry, boxmaterial );
      ball.position.set(100.0,0.0,500.0);
     scene.add( box );
+}
