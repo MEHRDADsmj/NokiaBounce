@@ -7,6 +7,7 @@ var circle, circle2, circle3;
 
 var collidableMeshList = [];
 var coinMeshList = [];
+var finishLineMesh = [];
 
 function CreateMap()
 {
@@ -14,6 +15,15 @@ function CreateMap()
     var woodTexture = loader.load("Shot 0033.png");
     var groundMat = new THREE.MeshBasicMaterial( {map: woodTexture} );
 
+    var finishTexture = loader.load("finish line.png");
+    var finishMat = new THREE.MeshBasicMaterial( {map: finishTexture} );
+    var finishLineGeometry = new THREE.BoxGeometry(1080, 100, 100);
+    var finishLine = new THREE.Mesh(finishLineGeometry, finishMat);
+    finishLine.position.set(4200.0, 0.0, 10.0);
+    finishLine.rotateZ(1.57);
+    scene.add(finishLine);
+
+    finishLineMesh.push(finishLine);
 
     var ballGeometry = new THREE.SphereGeometry(15, 64, 64);
     var ballMat = new THREE.MeshBasicMaterial( {color:0xff0000, side: THREE.DoubleSide} );
@@ -120,7 +130,7 @@ function CreateMap()
     var coneGeometry = new THREE.ConeGeometry( 30, 40, 32 );
     // var coneMat = new THREE.MeshBasicMaterial( {color: 0x505050} );
     cone3 = new THREE.Mesh( coneGeometry, coneMat );
-    cone3.position.set(4100, -110.0, 50.0);
+    cone3.position.set(3800, -110.0, 50.0);
     scene.add(cone3);
 
     collidableMeshList.push(cone, cone1, cone2, cone3);

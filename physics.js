@@ -226,6 +226,7 @@ function CollisionDetection()
         var ray = new THREE.Raycaster(originPoint, directionVector.clone().normalize());
         var nailsCollisionResults = ray.intersectObjects(collidableMeshList);
         var coinsCollisionResults = ray.intersectObjects(coinMeshList);
+        var finishLineResults = ray.intersectObjects(finishLineMesh);
         if (nailsCollisionResults.length > 0 && nailsCollisionResults[0].distance < directionVector.length())
         {
             HandleLose();
@@ -233,7 +234,12 @@ function CollisionDetection()
         else if(coinsCollisionResults.length > 0 && coinsCollisionResults[0].distance < directionVector.length())
         {
             coinsCollisionResults[0].object.visible = false;
-            score += 2;
+            HandleScore();
+        }
+        else if(finishLineResults.length > 0 && finishLineResults[0].distance < directionVector.length())
+        {
+            HandleWin();
+            break;
         }
     }
 }
@@ -241,5 +247,17 @@ function CollisionDetection()
 function HandleLose()
 {
     window.location.reload(true);
-    alert("You Lost!\nYou scored " + score);
+    alert("You lost!\nYou scored " + score);
+}
+
+function HandleScore()
+{
+    score += 2;
+}
+
+function HandleWin()
+{
+    score += 4;
+    window.location.reload(true);
+    alert("You won!\nYou scored " + score);
 }
