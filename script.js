@@ -6,7 +6,7 @@ function Init()
     keyboard = new THREEx.KeyboardState();
     TBI();
     CreateMap();
-    // PlaySound();
+    playSound();
     InitCannon();
     UpdateMap();
 }
@@ -22,7 +22,7 @@ function TBI()
     camera.lookAt(scene.position);
     scene.add(camera);
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0xb4f7ee);
     document.body.appendChild(renderer.domElement);

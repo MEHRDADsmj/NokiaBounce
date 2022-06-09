@@ -2,6 +2,7 @@ var world;
 var timeStep = 1/60;
 var ballBody, speed;
 var groundMat;
+var ballOnGround;
 
 function InitCannon()
 {
@@ -37,13 +38,25 @@ function UpdatePhysics()
     ball.position.copy(ballBody.position);
     ball.quaternion.copy(ballBody.quaternion);
 
-    console.log(ball.position);
+    if(ballBody.velocity.y < 1.0 && ballBody.velocity.y > 0.0)
+    {
+        ballOnGround = true;
+    }
+    else
+    {
+        ballOnGround = false;
+    }
+
+    // console.log(ballBody.velocity);
 }
 
 function Jump()
 {
-    var impulse = new CANNON.Vec3(0.0, 50.0, 0.0);
-    ballBody.applyImpulse(impulse, ballBody.position);
+    if(ballOnGround)
+    {
+        var impulse = new CANNON.Vec3(0.0, 900.0, 0.0);
+        ballBody.applyImpulse(impulse, ballBody.position);
+    }
 }
 
 function MapInit()
