@@ -5,6 +5,9 @@ var barrier;
 var cone;
 var circle, circle2, circle3;
 
+var collidableMeshList = [];
+var coinMeshList = [];
+
 function CreateMap()
 {
     var loader = new THREE.TextureLoader();
@@ -120,6 +123,8 @@ function CreateMap()
     cone3.position.set(4100, -110.0, 50.0);
     scene.add(cone3);
 
+    collidableMeshList.push(cone, cone1, cone2, cone3);
+
     var circleGeometry = new THREE.CircleGeometry( 20 , 30 );
     var circleMat = new THREE.MeshBasicMaterial( { color: 0xf5d907,side: THREE.DoubleSide } );
     circle = new THREE.Mesh(circleGeometry, circleMat );
@@ -131,6 +136,8 @@ function CreateMap()
     scene.add(circle);
     scene.add(circle2);
     scene.add(circle3);
+
+    coinMeshList.push(circle, circle2, circle3);
 
     var groundGeometry = new THREE.BoxGeometry(10000, 250, 10);
     

@@ -1,5 +1,6 @@
 // TBI
 var camera, scene, renderer;
+var score = 0;
 
 function Init()
 {
